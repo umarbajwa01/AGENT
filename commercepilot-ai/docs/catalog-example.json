@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Cotton T-shirt",
+    "description": "Replace with a truthful product description.",
+    "category": "Apparel",
+    "image": "",
+    "active": true,
+    "variants": [
+      {
+        "sku": "TEE-BLACK-M",
+        "label": "Black / Medium",
+        "price": 149900,
+        "stock": 20
+      },
+      {
+        "sku": "TEE-BLACK-L",
+        "label": "Black / Large",
+        "price": 149900,
+        "stock": 15
+      }
+    ]
+  }
+]

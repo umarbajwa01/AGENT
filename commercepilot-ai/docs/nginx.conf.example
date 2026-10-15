@@ -1,0 +1,11 @@
+# Place inside an HTTPS server block managed by your reverse proxy.
+# Certificate setup and domain are deployment-specific.
+root /srv/commercepilot/client/dist;
+location / { try_files $uri $uri/ /index.html; }
+location /api/ {
+  proxy_pass http://127.0.0.1:4000;
+  proxy_set_header Host $host;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  client_max_body_size 256k;
+}
+location /health/ { proxy_pass http://127.0.0.1:4000; }

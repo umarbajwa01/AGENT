@@ -1,0 +1,27 @@
+import {
+  LayoutDashboard,
+  ShoppingBag,
+  Package,
+  MessageSquare,
+  Users,
+  Truck,
+  Tag,
+  Settings,
+  Shield,
+  Layers,
+  Activity,
+} from "lucide-react";
+export const navItems = [
+  ["", "Overview", LayoutDashboard],
+  ["orders", "Orders", ShoppingBag],
+  ["products", "Products", Package],
+  ["categories", "Categories", Layers],
+  ["delivery", "Delivery zones", Truck],
+  ["coupons", "Discounts", Tag],
+  ["inbox", "Conversations", MessageSquare],
+  ["customers", "Customers", Users],
+  ["staff", "Team members", Users],
+  ["analytics", "Analytics", Activity],
+  ["settings", "Settings", Settings],
+  ["audit", "Audit log", Shield],
+];

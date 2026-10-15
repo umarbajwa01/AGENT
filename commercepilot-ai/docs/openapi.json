@@ -1,0 +1,1790 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CommercePilot AI API",
+    "version": "0.1.0",
+    "description": "Development API route inventory with checkout/auth schemas. Additional endpoint body/response schemas remain a release documentation task. All amounts in integer PKR paisa."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "cookieSession": []
+    }
+  ],
+  "paths": {
+    "/webhooks/whatsapp": {
+      "get": {
+        "summary": "GET /webhooks/whatsapp",
+        "operationId": "get_webhooks_whatsapp",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /webhooks/whatsapp",
+        "operationId": "post_webhooks_whatsapp",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "POST /auth/login",
+        "operationId": "post_auth_login",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "GET /auth/me",
+        "operationId": "get_auth_me",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "summary": "POST /auth/refresh",
+        "operationId": "post_auth_refresh",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "POST /auth/logout",
+        "operationId": "post_auth_logout",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/customer/session": {
+      "post": {
+        "summary": "POST /customer/session",
+        "operationId": "post_customer_session",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "GET /products",
+        "operationId": "get_products",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /products",
+        "operationId": "post_products",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "GET /products/{id}",
+        "operationId": "get_products_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "summary": "PATCH /products/{id}",
+        "operationId": "patch_products_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "summary": "DELETE /products/{id}",
+        "operationId": "delete_products_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/products/{id}/variants/{variant}": {
+      "patch": {
+        "summary": "PATCH /products/{id}/variants/{variant}",
+        "operationId": "patch_products_id_variants_variant",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variant",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/products/import": {
+      "post": {
+        "summary": "POST /products/import",
+        "operationId": "post_products_import",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "GET /categories",
+        "operationId": "get_categories",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /categories",
+        "operationId": "post_categories",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/categories/{id}": {
+      "delete": {
+        "summary": "DELETE /categories/{id}",
+        "operationId": "delete_categories_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/cart": {
+      "get": {
+        "summary": "GET /cart",
+        "operationId": "get_cart",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/cart/items/{id}": {
+      "delete": {
+        "summary": "DELETE cart item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated cart"
+          },
+          "400": {
+            "description": "Invalid quantity"
+          },
+          "409": {
+            "description": "Stock unavailable"
+          }
+        }
+      },
+      "patch": {
+        "summary": "PATCH cart item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated cart"
+          },
+          "400": {
+            "description": "Invalid quantity"
+          },
+          "409": {
+            "description": "Stock unavailable"
+          }
+        }
+      }
+    },
+    "/orders/quote": {
+      "post": {
+        "summary": "POST /orders/quote",
+        "operationId": "post_orders_quote",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "summary": "POST /orders",
+        "operationId": "post_orders",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmOrder"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "GET /orders",
+        "operationId": "get_orders",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "summary": "GET /orders/{id}",
+        "operationId": "get_orders_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/orders/{id}/status": {
+      "patch": {
+        "summary": "PATCH /orders/{id}/status",
+        "operationId": "patch_orders_id_status",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/orders/{id}/payment": {
+      "patch": {
+        "summary": "PATCH /orders/{id}/payment",
+        "operationId": "patch_orders_id_payment",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/delivery/zones": {
+      "get": {
+        "summary": "GET /delivery/zones",
+        "operationId": "get_delivery_zones",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /delivery/zones",
+        "operationId": "post_delivery_zones",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/delivery/zones/{id}": {
+      "patch": {
+        "summary": "PATCH /delivery/zones/{id}",
+        "operationId": "patch_delivery_zones_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/delivery/quote": {
+      "post": {
+        "summary": "POST /delivery/quote",
+        "operationId": "post_delivery_quote",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/ai/chat": {
+      "post": {
+        "summary": "POST /ai/chat",
+        "operationId": "post_ai_chat",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/messages": {
+      "get": {
+        "summary": "GET /messages",
+        "operationId": "get_messages",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/admin/customers": {
+      "get": {
+        "summary": "GET /admin/customers",
+        "operationId": "get_admin_customers",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/admin/audit-logs": {
+      "get": {
+        "summary": "GET /admin/audit-logs",
+        "operationId": "get_admin_audit_logs",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/admin/conversations": {
+      "get": {
+        "summary": "GET /admin/conversations",
+        "operationId": "get_admin_conversations",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/admin/conversations/{id}/messages": {
+      "get": {
+        "summary": "GET /admin/conversations/{id}/messages",
+        "operationId": "get_admin_conversations_id_messages",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "POST /admin/conversations/{id}/messages",
+        "operationId": "post_admin_conversations_id_messages",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/conversations/{id}/assign": {
+      "patch": {
+        "summary": "PATCH /admin/conversations/{id}/assign",
+        "operationId": "patch_admin_conversations_id_assign",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/staff": {
+      "get": {
+        "summary": "GET /admin/staff",
+        "operationId": "get_admin_staff",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /admin/staff",
+        "operationId": "post_admin_staff",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/staff/{id}": {
+      "patch": {
+        "summary": "PATCH /admin/staff/{id}",
+        "operationId": "patch_admin_staff_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/coupons": {
+      "get": {
+        "summary": "GET /admin/coupons",
+        "operationId": "get_admin_coupons",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "post": {
+        "summary": "POST /admin/coupons",
+        "operationId": "post_admin_coupons",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/coupons/{id}": {
+      "patch": {
+        "summary": "PATCH /admin/coupons/{id}",
+        "operationId": "patch_admin_coupons_id",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/settings": {
+      "get": {
+        "summary": "GET /admin/settings",
+        "operationId": "get_admin_settings",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/admin/settings/{key}": {
+      "put": {
+        "summary": "PUT /admin/settings/{key}",
+        "operationId": "put_admin_settings_key",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-csrf-token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/policies/{key}": {
+      "get": {
+        "summary": "GET /policies/{key}",
+        "operationId": "get_policies_key",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        },
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/admin/analytics": {
+      "get": {
+        "summary": "GET /admin/analytics",
+        "operationId": "get_admin_analytics",
+        "responses": {
+          "200": {
+            "description": "Successful operation; JSON response"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "403": {
+            "description": "CSRF or role denied"
+          },
+          "409": {
+            "description": "Conflict, expired quote, stock change or duplicate unique value"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/cart/items": {
+      "post": {
+        "summary": "POST cart item",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Updated cart"
+          },
+          "400": {
+            "description": "Invalid quantity"
+          },
+          "409": {
+            "description": "Stock unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "cookieSession": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "cp_session"
+      }
+    },
+    "schemas": {
+      "Address": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "phone", "city", "address"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          }
+        }
+      },
+      "ConfirmOrder": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["quoteId", "nonce", "confirmed", "idempotencyKey"],
+        "properties": {
+          "quoteId": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{24}$"
+          },
+          "nonce": {
+            "type": "string",
+            "minLength": 64,
+            "maxLength": 64
+          },
+          "confirmed": {
+            "const": true
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "QuoteRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["address"],
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "coupon": {
+            "type": "string"
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["email", "password"],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
